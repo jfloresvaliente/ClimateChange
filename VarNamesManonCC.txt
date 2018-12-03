@@ -1,0 +1,322 @@
+char spherical[]   
+    long_name: grid type logical switch
+    option_T: spherical
+    option_F: cartesian
+float xl[]   
+    long_name: domain length in the XI-direction
+    units: meter
+float el[]   
+    long_name: domain length in the ETA-direction
+    units: meter
+float Vtransform[]   
+    long_name: vertical terrain-following transformation equatio
+float sc_r[s_rho]   
+    long_name: ocean s roms coordinate at rho point
+    Vtransform: 1
+float sc_w[s_w]   
+    long_name: ocean s roms coordinate at w point
+    Vtransform: 1
+float Cs_r[s_rho]   
+    long_name: S-coordinate stretching curves at RHO-points
+float Cs_w[s_w]   
+	long_name: S-coordinate stretching curves at W-points
+float hc[]   
+	long_name: S-coordinate parameter, critical depth
+    units: meter
+float h[xi_rho,eta_rho]   
+    long_name: bathymetry at RHO-points
+    units: meter
+field: bath, scalar
+    standard_name: model_sea_floor_depth_below_geoid
+    coordinates: lat_rho lon_rho
+float f[xi_rho,eta_rho]   
+    long_name: Coriolis parameter at RHO-points
+    units: second-1
+    field: coriolis, scalar
+    standard_name: coriolis_parameter
+    coordinates: lat_rho lon_rho
+float pm[xi_rho,eta_rho]   
+    long_name: curvilinear coordinates metric in X
+    units: meter-1
+    field: pm, scalar
+    coordinates: lat_rho lon_rho
+    standard_name: inverse_of_cell_x_size
+float pn[xi_rho,eta_rho]   
+    long_name: curvilinear coordinates metric in ET
+    units: meter-1
+    field: pn, scalar
+    coordinates: lat_rho lon_rho
+    standard_name: inverse_of_cell_y_size
+float lon_rho[xi_rho,eta_rho]   
+    long_name: longitude of RHO-points
+    units: degree_east
+    field: lon_rho, scalar
+    standard_name: longitude
+float lat_rho[xi_rho,eta_rho]   
+    long_name: latitude of RHO-points
+    units: degree_north
+    field: lat_rho, scalar
+    standard_name: latitude
+float lon_u[xi_u,eta_rho]   
+    long_name: longitude of U-points
+    units: degree_east
+    field: lon_u, scalar
+    standard_name: longitude_at_u_location
+float lat_u[xi_u,eta_rho]   
+    long_name: latitude of U-points
+    units: degree_north
+    field: lat_u, scalar
+    standard_name: latitude_at_u_location
+float lon_v[xi_rho,eta_v]   
+    long_name: longitude of V-points
+    units: degree_east
+    field: lon_v, scalar
+    standard_name: longitude_at_v_location
+float lat_v[xi_rho,eta_v]   
+    long_name: latitude of V-points
+    units: degree_north
+    field: lat_v, scalar
+	standard_name: latitude_at_v_location
+float angle[xi_rho,eta_rho]   
+    long_name: angle between XI-axis and EAST
+    units: radians
+    field: angle, scalar
+    coordinates: lat_rho lon_rho
+float mask_rho[xi_rho,eta_rho]   
+    long_name: mask on RHO-points
+    option_0: land
+    option_1: water
+    standard_name: land_binary_mask
+    coordinates: lat_rho lon_rho
+int time_step[auxil,time]   
+    long_name: time step and record numbers from initialization
+float scrum_time[time]   
+    long_name: averaged time since initialization
+    units: second
+    field: time, scalar, series
+    standard_name: time
+    axis: T
+float zeta[xi_rho,eta_rho,time]   
+    long_name: averaged free-surface
+    units: meter
+    field: free-surface, scalar, series
+    standard_name: sea_surface_height
+    coordinates: lat_rho lon_rho
+float ubar[xi_u,eta_rho,time]   
+    long_name: averaged vertically integrated u-momentum component
+    units: meter second-1
+    field: ubar-velocity, scalar, series
+    standard_name: barotropic_sea_water_x_velocity_at_u_location
+    coordinates: lat_u lon_u
+float vbar[xi_rho,eta_v,time]   
+    long_name: averaged vertically integrated v-momentum component
+    units: meter second-1
+    field: vbar-velocity, scalar, series
+    standard_name: barotropic_sea_water_y_velocity_at_v_location
+    coordinates: lat_v lon_v
+float u[xi_u,eta_rho,s_rho,time]   
+    long_name: averaged u-momentum component
+    units: meter second-1
+    field: u-velocity, scalar, series
+    standard_name: sea_water_x_velocity_at_u_location
+    coordinates: lat_u lon_u
+float v[xi_rho,eta_v,s_rho,time]   
+    long_name: averaged v-momentum component
+    units: meter second-1
+    field: v-velocity, scalar, series
+    standard_name: sea_water_y_velocity_at_v_location
+    coordinates: lat_v lon_v
+float temp[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged potential temperature
+    units: Celsius
+    field: temperature, scalar, series
+    standard_name: sea_water_potential_temperature
+    coordinates: lat_rho lon_rho
+float salt[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged salinity
+    units: PSU
+    field: salinity, scalar, series
+    standard_name: sea_water_salinity
+    coordinates: lat_rho lon_rho
+float DIC[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Dissolved inorganic carbon
+    units: umol C L-1
+    field: DIC, scalar, series
+    standard_name: mole_concentration_of_dissolved_inorganic_carbon_in_sea_water
+    coordinates: lat_rho lon_rho
+float TALK[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Total Alkalinity
+    units: umol C L-1
+    field: Alkalinity, scalar, series
+    coordinates: lat_rho lon_rho
+float O2[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Oxygen
+    units: umol L-1
+    field: Oxygen, scalar, series
+    coordinates: lat_rho lon_rho
+float CACO3[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Calcite
+    units: umol C L-1
+    field: Calcite, scalar, series
+float PO4[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Phosphate
+    units: umol P L-1
+    field: Phosphate, scalar, series
+    coordinates: lat_rho lon_rho
+float POC[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Small particulate organic carbon
+    units: umol C L-1
+    field: Small particles, scalar, series
+    coordinates: lat_rho lon_rho
+float Si[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Silicate
+    units: umol Si L-1
+    field: Silicate, scalar, series
+    coordinates: lat_rho lon_rho
+float NANO[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Nanophytoplankton
+    units: umol C L-1
+    field: Nanophytoplankton, scalar, series
+    coordinates: lat_rho lon_rho
+float ZOO[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Microzooplankton
+    units: umol C L-1
+    field: Microzooplankton, scalar, series
+    coordinates: lat_rho lon_rho
+float DOC[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Dissolved organic carbon
+    units: umol C L-1
+    field: DOC, scalar, series
+    coordinates: lat_rho lon_rho
+float DIA[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Diatoms
+    units: umol C L-1
+    field: Diatoms, scalar, series
+    coordinates: lat_rho lon_rho
+float MESO[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Mesozooplankton
+    units: umol C L-1
+    field: Mesozooplankton, scalar, series
+    coordinates: lat_rho lon_rho
+float BSI[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Diatoms silicon
+    units: umol Si L-1
+    field: BSi, scalar, series
+    coordinates: lat_rho lon_rho
+float FER[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Dissolved iron
+    units: umol Fe L-1
+    field: Iron, scalar, series
+    coordinates: lat_rho lon_rho
+float BFE[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Iron in big particles
+    units: umol Fe L-1
+    field: BFE, scalar, series
+    coordinates: lat_rho lon_rho
+float GOC[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Big particulate organic carbon
+    units: umol C L-1
+    field: GOC, scalar, series
+    coordinates: lat_rho lon_rho
+float SFE[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Iron in nanophytoplankton
+    units: umol Fe L-1
+    field: SFE, scalar, series
+    coordinates: lat_rho lon_rho
+float DFE[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Iron in diatoms
+    units: umol Fe L-1
+    field: DFE, scalar, series
+    coordinates: lat_rho lon_rho
+float DSI[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Biogenic silica
+    units: umol Si L-1
+    field: DSI, scalar, series
+    coordinates: lat_rho lon_rho
+float NFE[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Iron in small particles
+    units: umol Fe L-1
+    field: NFE, scalar, series
+    coordinates: lat_rho lon_rho
+float NCHL[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Chlorophyll in nano
+    units: mg Chl m-3
+    field: NCHL, scalar, series
+    coordinates: lat_rho lon_rho
+float DCHL[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Chlorophyll in diatoms
+    units: mg Chl m-3
+    field: DCHL, scalar, series
+    coordinates: lat_rho lon_rho
+float NO3[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Nitrate
+    units: umol N L-1
+    field: Nitrate, scalar, series
+    coordinates: lat_rho lon_rho
+float NH4[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged Ammonium
+    units: umol N L-1
+    field: Ammonium, scalar, series
+    coordinates: lat_rho lon_rho
+float omega[xi_rho,eta_rho,s_w,time]   
+    long_name: averaged S-coordinate vertical momentum component
+    units: meter second-1
+    field: omega, scalar, series
+    coordinates: lat_rho lon_rho
+float w[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged vertical momentum component
+    units: meter second-1
+    field: w-velocity, scalar, series
+    standard_name: upward_sea_water_velocity
+    coordinates: lat_rho lon_rho
+float sustr[xi_u,eta_rho,time]   
+    long_name: averaged Kinematic u wind stress component
+    units: N/m2
+    standard_name: surface_downward_eastward_stress
+    coordinates: lat_u lon_u
+float svstr[xi_rho,eta_v,time]   
+	long_name: averaged Kinematic v wind stress component
+    units: N/m2
+    standard_name: surface_downward_northward_stress
+    coordinates: lat_v lon_v
+float diff3d[xi_rho,eta_rho,s_rho,time]   
+    long_name: averaged horizontal diffusivity coefficient
+    field: diff3d, scalar, series
+    standard_name: ocean_tracer_xy_biharmonic_diffusivity
+    coordinates: lat_rho lon_rho
+float AKt[xi_rho,eta_rho,s_w,time]   
+    long_name: averaged temperature vertical diffusion coefficient
+    units: meter2 second-1
+    field: AKt, scalar, series
+    standard_name: ocean_vertical_heat_diffusivity_at_w_location
+    coordinates: lat_rho lon_rho
+float hbl[xi_rho,eta_rho,time]   
+    long_name: averaged depth of planetary boundary layer
+    units: meter
+    field: hbl, scalar, series
+    standard_name: ocean_mixed_layer_thickness_defined_by_mixing_scheme
+    coordinates: lat_rho lon_rho
+float shflux[xi_rho,eta_rho,time]   
+    long_name: averaged surface net heat flux
+    units: Watts meter-2
+    coordinates: lat_rho lon_rho
+float swflux[xi_rho,eta_rho,time]   
+    long_name: averaged surface freshwater flux (E-P)
+    units: centimeter day-1
+    coordinates: lat_rho lon_rho
+float radsw[xi_rho,eta_rho,time]   
+    long_name: averaged Short-wave surface radiation
+    units: Watts meter-2
+    coordinates: lat_rho lon_rho
+float shflx_rlw[xi_rho,eta_rho,time]   
+    long_name: averaged Long-wave surface radiation
+    units: Watts meter-2
+    coordinates: lat_rho lon_rho
+float shflx_lat[xi_rho,eta_rho,time]   
+    long_name: averaged Latent surface heat flux
+    units: Watts meter-2
+    coordinates: lat_rho lon_rho
+float shflx_sen[xi_rho,eta_rho,time]   
+    long_name: averaged Sensible surface heat flux
+    units: Watts meter-2
+    coordinates: lat_rho lon_rho
